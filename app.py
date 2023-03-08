@@ -5,12 +5,12 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:lqvie@localhost:5433/student'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:lavie@localhost:5432/student'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-class Student(db.model):
+class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     firstname = db.Column(db.String(100), nullable=False)
     lastname = db.Column(db.String(100), nullable=False)
@@ -21,4 +21,4 @@ class Student(db.model):
     bio = db.Column(db.Text)
     
     def __repr__(self):
-        return f'<Student {self.firstname} >'
+        return f'<Student {self.firstname}>'
