@@ -11,7 +11,7 @@
                 </b>
                 <p>{{ student.email }}</p>
                 <p>{{student.age }} years old.</p>
-                <p>Joined: {{ student.created_at }}
+                <p>Joined: {{ student.created_at.strftime('%a-%d-%B-%Y') }}
                 <div class="bio">
                     <h4>Bio</h4>
                     <p>{{ student.bio }}</p>
