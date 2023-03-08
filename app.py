@@ -22,3 +22,8 @@ class Student(db.Model):
     
     def __repr__(self):
         return f'<Student {self.firstname}>'
+
+@app.route('/')
+def index():
+    students = Student.query.all()
+    return render_template('index.html', students=students)
