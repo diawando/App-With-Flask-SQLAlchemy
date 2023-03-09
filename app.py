@@ -35,4 +35,21 @@ def student(student_id):
 
 @app.route('/create/', methods=('GET', 'POST'))
 def create():
+    if request.method == 'POST':
+       firstname = request.form['firstname']
+       lastname = request.form['lastname']
+       email = request.form['email']
+       age = int(request.form['age'])
+       bio = request.form['bio']
+       student = Student(firstname=firstname,
+                         lastname=lastname,
+                         email=email,
+                         age=age,
+                         bio=bio)
+       db.session.add(student)
+       db.session.commit()
+      
+       return redirect(url_for('index'))
+       
+        
     return render_template('create.html')
