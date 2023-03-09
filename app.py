@@ -77,3 +77,11 @@ def edit(student_id):
         return redirect(url_for('index'))
     
     return render_template('edit.html', student=student)
+
+@app.post('/<int:student_id>/delete')
+def delete(student_id):
+    student = Student.query.get_or_404(student_id)
+    db.session.delete(student)
+    db.session.commit()
+    return redirect(url_for('index'))
+
