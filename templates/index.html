@@ -20,6 +20,7 @@
                     <h4>Bio</h4>
                     <p>{{ student.bio }}</p>
                 </div>
+                <a href="{{ url_for('edit', student_id=student.id) }}">Edit</a>
             </div>
         {% endfor %}
     </div>
