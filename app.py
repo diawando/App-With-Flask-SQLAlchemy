@@ -32,3 +32,7 @@ def index():
 def student(student_id):
     student = Student.query.get_or_404(student_id)
     return render_template('student.html', student=student)
+
+@app.route('/create/', methods=('GET', 'POST'))
+def create():
+    return render_template('create.html')
